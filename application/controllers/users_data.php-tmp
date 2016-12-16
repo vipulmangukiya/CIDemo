@@ -1,0 +1,24 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Users extends CI_Controller {
+
+	public function register() {
+		$this->load->helper('url');
+		$this->load->view("register");
+	}
+	public function forgot() {
+
+	}
+	public function login() {
+		$data = array(
+			'username' => $this->input->post('email'),
+			'pwd'      => $this->input->post('re_pwd')
+		);
+
+		$this->load->model('Users');
+		$this->Users->user_login();
+	}
+}
+
+?>
